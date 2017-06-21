@@ -1,0 +1,27 @@
+
+#include <stdio.h>
+#include <math.h>
+
+#define E (2.7182818284590452353602874713526624977572470937L )
+
+void main() {
+	int i,n;
+	double xi1,xi2,xi0,x,xi,h;
+	printf("Enter n:\n");
+	scanf("%d",&n);
+	h= (double) 1/n;
+	xi0= 1+pow(E,1);
+	xi1=0;
+	xi2=0;
+	
+	for (i=1;i<n;i++) {
+		x=0+i*h;
+		if(i%2==0) 
+			xi2 = xi2+pow(E,x);
+		else xi1=xi1+pow(E,x);
+	}
+	
+	xi=h*(xi0+2*xi2+4*xi1)/3;
+	
+	printf("%f",xi);
+}
